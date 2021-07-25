@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Hello world') {
             steps {
-                echo 'Hello form Jenkins job'
+                echo sh'lscpu'
             }
         }
     }
