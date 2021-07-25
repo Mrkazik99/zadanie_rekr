@@ -1,9 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Hello world') {
+        stage('CPUs') {
             steps {
-                echo sh'lscpu'
+                sh 'lscpu | grep -m1 CPU\(s\):'
+            }
+        }
+        stage('Memory') {
+            steps {
+                sh 'free -g'
+            }
+        }
+        stage('Containers') {
+            steps {
+                sh 'docker ps'
             }
         }
     }
